@@ -41,7 +41,7 @@ def criar_banco_de_dados_e_tablelas_com_tentaivas():
             print(f"Aviso de criação de tabela (provavelmente já existem): {e}")
             break
 
-        except Exception as e:
+        except Exception as e: # pylint: disable=broad-exception-caught
             print(f"Erro inesperado ao criar tabelas: {e}")
             break
 

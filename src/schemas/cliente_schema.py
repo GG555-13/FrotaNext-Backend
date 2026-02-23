@@ -70,6 +70,7 @@ class SchemaPessoaJuridica(BaseModel):
 class SchemaMotoristaAssociar(BaseModel):
     cpf_motorista: str
 
+
 class SchemaPessoaFisicaUpdate(BaseModel):
     email: EmailStr
     telefone: str
@@ -77,6 +78,7 @@ class SchemaPessoaFisicaUpdate(BaseModel):
     cpf: str
     cnh: str
     endereco: SchemaEnderecoBase
+
 
 class SchemaPessoaJuridicaUpdate(BaseModel):
     email: EmailStr

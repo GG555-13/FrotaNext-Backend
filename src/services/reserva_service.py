@@ -27,8 +27,7 @@ def _calcular_custos_reserva(
 
     diferenca = data_devolucao - data_retirada
     quantidade_diarias = math.ceil(diferenca.total_seconds() / 86400)
-    if quantidade_diarias < 1:
-        quantidade_diarias = 1
+    quantidade_diarias = max(quantidade_diarias, 1)
 
     valor_total_diarias = quantidade_diarias * valor_diaria_veiculo
 
@@ -194,8 +193,7 @@ def finalizar_reserva(id_reserva: int, sessao_banco: Session) -> Reserva:
     data_hoje = datetime.now()
 
     dias_reais = math.ceil((data_hoje - reserva.data_retirada).total_seconds() / 86400)
-    if dias_reais < 1:
-        dias_reais = 1
+    dias_reais = max(dias_reais, 1)
 
     total_final = dias_reais * reserva.valor_diaria_no_momento
 
